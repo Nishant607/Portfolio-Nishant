@@ -1,0 +1,177 @@
+/* MAIN ROOT AND RESET */
+:root {
+  /* Colors */
+  --bg-primary: #050508;
+  --bg-secondary: #0d0d14;
+  --bg-card: #0f0f1a;
+  --purple-deep: #3b0764;
+  --purple-main: #7c3aed;
+  --purple-bright: #a855f7;
+  --purple-glow: #c084fc;
+  --purple-neon: #e879f9;
+  --white-soft: #f8f4ff;
+  --white-muted: #a09ab8;
+  
+  /* Glass and Borders */
+  --border-glass: rgba(168, 85, 247, 0.15);
+  
+  /* Gradients */
+  --gradient-hero: linear-gradient(135deg, var(--bg-primary) 0%, #0d0b1e 50%, #1a0533 100%);
+  --gradient-purple: linear-gradient(135deg, var(--purple-main), var(--purple-bright), var(--purple-neon));
+  --gradient-card: linear-gradient(145deg, rgba(124,58,237,0.08), rgba(168,85,247,0.03));
+  
+  /* Shadows */
+  --shadow-glow: 0 0 40px rgba(168, 85, 247, 0.3);
+  --shadow-card: 0 8px 32px rgba(0, 0, 0, 0.6);
+  --shadow-hover: 0 12px 40px rgba(0, 0, 0, 0.8), inset 0 1px 0 rgba(255, 255, 255, 0.05);
+  
+  /* Effects */
+  --blur-glass: blur(16px) saturate(180%);
+
+  /* Typography Scales */
+  --text-hero: clamp(3.5rem, 8vw, 7rem);
+  --text-h1: clamp(2.5rem, 5vw, 4rem);
+  --text-h2: clamp(1.8rem, 3vw, 2.5rem);
+  --text-body: 1.05rem;
+  --text-small: 0.875rem;
+
+  /* Layout */
+  --container-width: 1280px;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* Custom Selection */
+::selection {
+  background: rgba(168, 85, 247, 0.3);
+  color: var(--white-soft);
+}
+
+body {
+  font-family: 'DM Sans', sans-serif;
+  font-size: var(--text-body);
+  line-height: 1.75;
+  font-weight: 400;
+  background-color: var(--bg-primary);
+  color: var(--white-soft);
+  overflow-x: hidden;
+  cursor: none; /* Custom Cursor */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Typography Defaults */
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Syne', sans-serif;
+  color: var(--white-soft);
+  line-height: 1.2;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  transition: all 0.3s ease;
+  cursor: none;
+}
+
+ul {
+  list-style: none;
+}
+
+.text-muted {
+  color: var(--white-muted);
+}
+
+.gradient-text {
+  background: var(--gradient-purple);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  display: inline-block;
+}
+
+/* Layout Classes */
+.container {
+  max-width: var(--container-width);
+  margin: 0 auto;
+  padding: 0 5%;
+}
+
+.section {
+  position: relative;
+  padding: 120px 0;
+  z-index: 2;
+}
+
+.pt-120 { padding-top: 120px; }
+.pb-120 { padding-bottom: 120px; }
+.mb-24 { margin-bottom: 24px; }
+.mb-32 { margin-bottom: 32px; }
+.w-100 { width: 100%; }
+
+/* Scroll Progress indicator injected globally */
+.scroll-progress-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 3px;
+  background: var(--gradient-purple);
+  width: 0%;
+  z-index: 9999;
+  box-shadow: 0 0 10px var(--purple-bright);
+}
+
+/* Base structural dividers & glow orbs */
+.bg-orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  z-index: 1;
+  pointer-events: none;
+  background: radial-gradient(circle, rgba(124,58,237,0.15), transparent 70%);
+}
+
+.orb-1 { width: 600px; height: 600px; left: -10%; top: 20%; animation: floatOrb 25s infinite alternate ease-in-out; }
+.orb-2 { width: 450px; height: 450px; right: -5%; top: 50%; animation: floatOrb 30s infinite alternate-reverse ease-in-out; }
+.orb-3 { width: 500px; height: 500px; left: 30%; top: 80%; animation: floatOrb 20s infinite alternate ease-in-out; }
+
+.section-divider {
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
+  position: relative;
+  display: block;
+}
+
+.section-divider svg {
+  display: block;
+  width: calc(100% + 1.3px);
+  height: 60px;
+}
+
+.section-divider .shape-fill {
+  fill: var(--bg-secondary);
+}
+
+.section-label {
+    font-family: 'JetBrains Mono', monospace;
+    color: var(--purple-bright);
+    font-size: var(--text-small);
+    margin-bottom: 1rem;
+    letter-spacing: 0.1em;
+}
+
+.section-heading {
+    font-size: var(--text-h2);
+    font-weight: 700;
+    margin-bottom: 2rem;
+    display: inline-block;
+    background: var(--gradient-purple);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}

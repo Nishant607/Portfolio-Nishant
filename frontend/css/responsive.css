@@ -1,0 +1,113 @@
+/* --- RESPONSIVE MEDIA QUERIES --- */
+
+/* Tablet & Smaller Desktop */
+@media screen and (max-width: 1024px) {
+    :root {
+        --text-hero: 4.5rem;
+    }
+    
+    .hero-content {
+        grid-template-columns: 1fr;
+        text-align: center;
+        padding-top: 40px;
+    }
+    
+    .hero-left {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .hero-tagline {
+        border-left: none;
+        padding-left: 0;
+        border-top: 3px solid var(--purple-main);
+        padding-top: 16px;
+    }
+    
+    .about-grid, .skills-layout, .projects-grid, .contact-grid {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+    }
+    
+    .featured-project {
+        grid-column: 1;
+        grid-template-columns: 1fr;
+    }
+
+    .terminal-mockup {
+        min-height: 250px;
+    }
+}
+
+/* Mobile Devices */
+@media screen and (max-width: 768px) {
+    .pt-120 { padding-top: 80px; }
+    .pb-120 { padding-bottom: 80px; }
+    
+    .nav-links, .nav-cta {
+        display: none; /* simple hidden state for vanilla, logic in js */
+    }
+    
+    .hamburger {
+        display: flex;
+    }
+
+    /* Active Mobile Nav Additions */
+    .nav-active .nav-links {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: 80px;
+        left: 0;
+        width: 100%;
+        background: var(--bg-card);
+        padding: 2rem;
+        border-bottom: 1px solid var(--border-glass);
+    }
+    
+    .nav-active .nav-cta {
+        display: block;
+        position: absolute;
+        top: 320px;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    .hero-greeting { justify-content: center; }
+    
+    .contact-cards {
+        grid-template-columns: 1fr;
+    }
+    
+    .footer-container {
+        flex-direction: column;
+        gap: 2rem;
+        text-align: center;
+    }
+
+    .stat-cards-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .avatar-block {
+        width: 250px;
+        height: 250px;
+    }
+
+    .avatar-inner {
+        width: 230px;
+        height: 230px;
+    }
+    .avatar-text { font-size: 4rem;}
+}
+
+/* Reduced Motion Preference check */
+@media (prefers-reduced-motion: reduce) {
+    *, ::before, ::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}

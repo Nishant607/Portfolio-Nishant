@@ -1,0 +1,77 @@
+/* --- CSS ANIMATIONS --- */
+
+/* Scroll indicator bounce */
+@keyframes scrollBounce {
+    0% { top: -10px; opacity: 0; }
+    50% { top: 30px; opacity: 1; }
+    100% { top: 70px; opacity: 0; }
+}
+
+/* Background floating orbs */
+@keyframes floatOrb {
+    0% { transform: translate(0, 0) scale(1); }
+    100% { transform: translate(30px, -50px) scale(1.1); }
+}
+
+/* Base floating effect for elements */
+@keyframes float {
+    0%, 100% { transform: translateY(0px) }
+    50% { transform: translateY(-12px) }
+}
+
+/* Avatar Border Rotate */
+@keyframes spinRotate {
+    to { transform: rotate(360deg); }
+}
+
+/* Border pulse for featured project card */
+@keyframes borderPulse {
+    0% { box-shadow: 0 0 0px rgba(168,85,247,0), 0 8px 32px rgba(0, 0, 0, 0.6); }
+    100% { box-shadow: 0 0 25px rgba(168,85,247,0.4), 0 8px 32px rgba(0, 0, 0, 0.6); }
+}
+
+/* Pulse for status dot */
+@keyframes pulseGreen {
+    0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.7); }
+    70% { transform: scale(1); box-shadow: 0 0 0 10px rgba(34, 197, 94, 0); }
+    100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(34, 197, 94, 0); }
+}
+
+/* Shimmer effect for buttons */
+.btn-primary .btn-shimmer {
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+    transform: skewX(-20deg);
+    transition: none;
+    z-index: 10;
+}
+
+.btn-primary:hover .btn-shimmer {
+    animation: shimmer 1.5s infinite;
+}
+
+@keyframes shimmer {
+    0% { left: -100%; }
+    100% { left: 200%; }
+}
+
+/* Loading spinner replacing arrow */
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.loading-spinner {
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    border: 2px solid rgba(255,255,255,0.3);
+    border-radius: 50%;
+    border-top-color: #fff;
+    animation: spin 1s ease-in-out infinite;
+    margin-left: 8px;
+}
